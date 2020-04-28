@@ -1,13 +1,13 @@
 object Solution {
     def lengthOfLongestSubstring(s: String): Int = {
-        def helper(str1: List[Char], str2: List[Char]): List[Char] = {
+        def findNonRepeat(str1: List[Char], str2: List[Char]): List[Char] = {
             str1 match {
                 case x :: xs => if (str2.contains(x)) str2 else helper(xs, str2 :+ x)
                 case x :: Nil => if (str2.contains(x)) str2 else str2 :+ x
                 case Nil => str2
             }
         }
-        def helper2(str: List[Char], len: Int): Int = {
+        def scanInput(str: List[Char], len: Int): Int = {
             str match {
                 case x :: xs => 
                     helper2(
